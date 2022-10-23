@@ -6,14 +6,12 @@ import { Product } from '../../componets'
 const ProductDetails = ({ product, products}) => {
     const { image, name, details, price } = product
     const [index, setIndex] = useState(0)
-    console.log(product)
-    console.log(index)
   return (
     <div>
         <div className='product-detail-container'>
             <div>
                 <div className='image-container'>
-                    <img src={urlFor(image && image[index])} className='product-detail-image' />
+                    <img src={urlFor(image && (image[index] || image[0]))} className='product-detail-image' />
                 </div>
                 <div className='small-image-container'>
                     {image?.map((item, i) => (
